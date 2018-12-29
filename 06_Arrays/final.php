@@ -1,14 +1,14 @@
 <?php
-	
-	// Constants
-	define("TITLE", "Arrays");
-	
-	// Custom Variables
-	$my_name	= "Brad Hussey";
-	$lesson_num	= 6;
-	
-	// Moustache Array
-	$moustaches = array("Handlebar", "Salvador Dali", "Fu Manchu");
+    
+    // Constants
+    define("TITLE", "Arrays");
+    
+    // Custom Variables
+    $my_name	= "Brad Hussey";
+    $lesson_num	= 6;
+    
+    // Moustache Array
+    $moustaches = array("Handlebar", "Salvador Dali", "Fu Manchu");
 ?>
 
 <!DOCTYPE html>
