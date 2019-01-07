@@ -32,6 +32,13 @@
 				<?php
 					
 					// your code here
+					$dinner = array("Meat", "Potatoes", "Beans", "Rice");
+
+					sort($dinner);
+
+					foreach ($dinner as $plate){
+						echo $plate . "<br>";
+					}
 					
 				?>
 				
@@ -39,6 +46,11 @@
 				<?php
 					
 					// your code here
+					rsort($dinner);
+
+					foreach ($dinner as $plate){
+						echo $plate . "<br>";
+					}
 					
 				?>
 				
@@ -46,6 +58,10 @@
 				<?php
 					
 					// your code here
+					
+					foreach ($dinner as $plate){
+						echo $plate . "<br>";
+					}
 					
 				?>
 				

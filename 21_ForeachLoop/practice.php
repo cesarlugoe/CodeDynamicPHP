@@ -30,7 +30,11 @@
 				
 				<?php
 				 
-				    // your code here
+				 $moustaches = array("Handlebar", "Salvador Dali", "Fu Manchu");
+
+				 foreach ($moustaches as $moustache) {
+					 echo "I love $moustache <br>";
+				 }
 				 
 				?>
 				

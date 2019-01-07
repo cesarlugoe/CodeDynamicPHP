@@ -36,6 +36,25 @@
 						echo "Number: $a <br>";
 					
 					}
+
+					function getCount($str) {
+						$vowelsCount = 0;
+						
+						// enter your magic here
+						str_split($str);
+						
+						for ($i = 0; $i <= count($str); $i++) {
+							if ( in_array("a", $str[i]) || in_array("e", $str[i]) || in_array("i", $str[i]) ) {
+							  //$vowelsCount++; 
+							  echo $vowelsCount;
+							}
+							if ( in_array("o", $str[i]) || in_array("u", $str[i]) ) {
+							  $vowelsCount += 1;
+							}
+						 }
+						
+						return $vowelsCount;
+					 }
 				 
 				?>
 				

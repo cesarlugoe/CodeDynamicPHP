@@ -1,19 +1,52 @@
 <?php
 
 	// Constants
-
+	define("TITLE", "Arrays");
 
 	// Variables
-
+	$my_name = Cesar;
+	$current_year = 2018;
+	$lesson_number = 9;
 	
 	// Arrays
-	
+	$age_group = array ("teenager", "adult", "child");
+
+	$moustaches = array (
+
+							array (
+								"name" => "HandleBar",
+								"colour" => "black"
+							),	
+							array (
+								"name" => "Fu Manchu",
+								"colour" => "brown"
+							),	
+							array (
+								"name" => "Salvador Dali",
+								"colour" => "blonde"
+							)		
+				);	
+	$gentlemen = array (
+
+							array (
+								"name" => "Carter",
+								"country" => "Canada"
+							),
+							array (
+								"name" => "Rodrigo",
+								"country" => "Uruguay"
+							),
+							array (
+								"name" => "Giovanni",
+								"country" => "Italy"
+							)
+	)
 ?>
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Get Your Hands Dirty: <!-- TITLE --></title>
+		<title>Get Your Hands Dirty: <?php echo TITLE ?></title>
 		<link href="/assets/styles.css" rel="stylesheet">
 		<script type="text/javascript" src="/assets/syntaxhighlighter/scripts/shCore.js"></script>
 		<script type="text/javascript" src="/assets/syntaxhighlighter/scripts/shBrushPhp.js"></script>
@@ -26,23 +59,34 @@
 				<img src="/assets/img/logo.png" alt="PHP">
 			</a>
 			
-			<h1>Get Your Hands Dirty: <small><!-- TITLE --></small></h1>
+			<h1>Get Your Hands Dirty: <small><?php echo TITLE ?></small></h1>
 			<hr>
 			
 			<h2>Your Example</h2>
 			
 			<div class="sandbox">
 				
-				<h3></h3>
-				<p></p>
+				<h3><?php echo $gentlemen[0]["name"];?> from <?php echo $gentlemen[0]["country"]; ?></h3>
+				<p> 
+					<strong><?php echo $gentlemen[0]["name"]; ?></strong> is quite the <strong><?php echo $age_group[1];?></strong>! 
+					 He sports a solid <strong><?php echo $moustaches[0]["name"];?></strong>
+					 that is <strong><?php echo $moustaches[0]["colour"];?></strong> colour.
+				</p>
 				
-				<h3></h3>
-				<p></p>
+				<h3><?php echo $gentlemen[1]["name"];?> from <?php echo $gentlemen[1]["country"]; ?></h3>
+				<p>
+					<strong><?php echo $gentlemen[1]["name"];?></strong> is rather a dapper <strong><?php echo $age_group[0]?></strong>! 
+					He proudly wears a <strong><?php echo $moustaches[1]["name"];?></strong> that is colored gentle 
+					<strong><?php echo $moustaches[1]["colour"]; ?></strong>.
+				</p>
 				
-				<h3></h3>
-				<p></p>
+				<h3><?php echo $gentlemen[2]["name"];?> from <?php echo $gentlemen[2]["country"]; ?></h3>
+				<p> <strong><?php echo $gentlemen[2]["name"];?></strong> might seem too young for a 'stache because he is a <strong><?php echo $age_group[2];?></strong>.
+                 But he proudly displays his <strong><?php echo $moustaches[2]["name"]?></strong> at school! Although, it's a little hard to see because it's light 
+					  <strong><?php echo $moustaches[2]["colour"]; ?></strong>.
+				</p>
 				
-			</div><!-- end sandbox -->
+			</div><!-- end sandsbox -->
 			
 			<a href="index.php" class="button">Back to the final example</a>
 			
@@ -53,7 +97,7 @@
 			
 			<hr>
 			
-			<small>&copy;<!-- YEAR --> - <!-- YOUR NAME --></small>
+			<small>&copy;<?php echo $current_year?> - <?php echo $my_name ?></small>
 		</div><!-- end wrapper -->
 		
 		<div class="copyright-info">

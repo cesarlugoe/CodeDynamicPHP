@@ -1,9 +1,15 @@
 <?php
 	
 	// Constants
-
+	define("TITLE", "If Statements");
 	
 	// Custom Variables
+	$my_name = Cesar;
+	$current_year = 2018;
+	$lesson_number = 10;
+
+	$a = 20;
+	$b = 50;
 
 
 ?>
@@ -20,12 +26,18 @@
 				<img src="../assets/img/logo.png" alt="PHP">
 			</a>
 			
-			<h1>Tutorial <!-- LESSON NUMBER -->: <small><!-- TITLE --></small></h1>
+			<h1>Tutorial <?php echo $lesson_number ?>: <small><?php echo TITLE ?></small></h1>
 			<hr>
 			
 			<h2>Your Example</h2>
 			
 			<div class="sandbox">
+			<?php 
+				if ($a < $b) {
+					echo "Yep! $b is certainly less than $a.";
+
+				}
+			?>	
 				
 			</div><!-- end sandbox -->
 			
