@@ -277,6 +277,10 @@ input.button.next {
 
 /* Final example website */
 
+.exercise-answer {
+   padding-left: 20px;
+}
+
 #final-example .wrapper {
 	width: 800px;
 	padding: 0;
