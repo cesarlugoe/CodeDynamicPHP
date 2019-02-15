@@ -1,29 +1,9 @@
 <?php 
-   
-   if(isset($_POST['submit'])) {
-
-      $username = strtolower($_POST['username']);
-      $password = $_POST['password'];
-
-   //    if($username && $password) {
-   //       echo "Welcome $username";
-   //    } else {
-   //       echo "You need to field out all fields";
-   //    }
-   // 
-
-   $connection = mysqli_connect('localhost', 'root', 'root', 'login_app');
-
-      if($connection) {
-         echo "connected to database";
-      } else {
-         die("connection failed");
-      }
-
-   }   
+   include "db.php";
+   include "validation.php";
+   include "functions.php";
+   //Signup - Create
 ?>
-
-
 
 <!DOCTYPE <!DOCTYPE html>
 <html>
@@ -38,20 +18,28 @@
 <body>
    <div class="container">
       <div class="col-m-6">
-         <form action="login.php" method="post">
+         <form action="create.php" method="post">
             <div class="form-group">
                <label for="username">Username</label>
-               <input type="text" name="username" class="form-control" required>
+               <input type="text" name="username" class="form-control">
             </div>
             <div class="form-group">
                <label for="password">Password</label>
-               <input type="text" name="password" class="form-control" required>
+               <input type="text" name="password" class="form-control">
             </div>
             <input class="btn btn-primary" type="submit" name="submit" value="submit">
          </form>
+         <?php
+            if(validateForm()) {
+               createUser();
+            }   
+         ?>
       </div>
    
    </div>
    
 </body>
 </html>
+
+
+
