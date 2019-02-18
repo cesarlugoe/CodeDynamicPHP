@@ -1,23 +1,29 @@
 <?php
    include "db.php";
    
-
-  function fetchAllData($successMessage) {
-      $query = "SELECT * FROM users";
-      return queryDataBase($query, $successMessage);
-  }
-
   function createUser() {
-     $username = strtolower($_POST['username']);
-     $password = $_POST['password'];
+     $username = strtolower(protectFieldValue('username'));
+     $password = protectFieldValue('password');
+     $password = encryptPassword($password);
      $query = "INSERT INTO users(username, password)";
      $query .= "VALUES ('$username', '$password')"; 
      queryDataBase($query, "User Created!");
   }
 
+  function printDataBase() {
+     $confimationMessage = " ";
+     $data = fetchAllData($confimationMessage);
+     while ($row = mysqli_fetch_assoc($data)) {
+        echo "<pre>";
+        print_r($row);
+        echo "</pre>"; 
+   }   
+}
+
   function updateUser() {
-      $username = strtolower($_POST['username']);
-      $password = $_POST['password'];
+      $username = strtolower(protectFieldValue('username'));
+      $password = protectFieldValue('password');
+      $password = encryptPassword($password);
       $id = $_POST['id'];
       $query = "UPDATE users SET ";
       $query .= "username = '$username', ";
@@ -25,6 +31,28 @@
       $query .= "WHERE id = $id ";
       
       queryDataBase($query, "User Updated!");
+  }
+
+  function protectFieldValue($fieldName) {
+      global $connection;
+      $fieldValue = $_POST["$fieldName"];
+      return mysqli_real_escape_string($connection, $fieldValue);
+  }
+
+  function encryptPassword($password) {
+     $hashFormat = "$2y$10$";
+     $salt = "iusesomecrazystrings22";
+     $hashFormatAndSalt = $hashFormat . $salt;
+     $password = crypt($password, $hashFormatAndSalt);
+     return $password;
+  }
+
+  function deleteUser() {
+      $id = $_POST['id'];
+      $query = "DELETE FROM users ";
+      $query .= "WHERE id = $id ";
+      
+      queryDataBase($query, "User Deleted!");
   }
 
   function queryDataBase($query, $successMessage) {
@@ -38,21 +66,18 @@
       return $result;
   }
 
-  function printIdSelectorOptionsForUpdate() {
+  function printIdSelectorOptions() {
       $confimationMessage = " ";
       $data = fetchAllData($confimationMessage);
       while ($row = mysqli_fetch_assoc($data)) {
          $id = $row['id'];
          echo "<option value='$id'>$id</option>";
       }
-}
-
-   function printDataBase() {
-      $confimationMessage = " ";
-      $data = fetchAllData($confimationMessage);
-      while ($row = mysqli_fetch_assoc($data)) {
-         echo "<pre>";
-         print_r($row);
-         echo "</pre>"; 
-      }   
    }
+
+   function fetchAllData($successMessage) {
+      $query = "SELECT * FROM users";
+      return queryDataBase($query, $successMessage);
+   }
+
+   
